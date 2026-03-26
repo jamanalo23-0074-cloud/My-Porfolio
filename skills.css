@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* Navbar */
+header {
+    padding: 20px 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00f5ff;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.skills-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* Skill Card */
+.skill-card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00f5ff;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #00f5ff, #00ff9c);
+    height: 100%;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 20px;
+
+    width: 0;
+    transition: width 0.2s ease; /* fast transition for mouse follow */
+    position: relative;
+}
+
+/* Shine effect on hover */
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-20deg);
+}
+
+.skill-card:hover .progress-bar::after {
+    animation: shine 1s linear infinite;
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    /* Ensure no overflow */
+    width: 100%;
+}
+
+.skill-card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.3s;
+    position: relative; /* Make sure positioning context */
+    overflow: hidden; /* Prevent children overflow */
+}
+
+.skill-card img {
+    width: 60px;       /* or whatever max width you want */
+    height: auto;      /* maintain aspect ratio */
+    display: block;    /* removes any inline spacing */
+    margin: 0 auto 10px; /* center horizontally and some bottom margin */
+    object-fit: contain; /* ensures the image scales nicely */
+    border-radius: 8px; /* optional: rounded corners */
+}
+
+.progress {
+    background: #334155;
+    border-radius: 20px;
+    height: 20px;
+    margin-top: 10px;
+    width: 100%; /* Force progress bar container to only fill its card */
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00f5ff, #00ff9c);
+    text-align: right;
+    padding-right: 8px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 20px;
+    width: 0;
+    transition: width 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+
+.skill-info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 10px;
+}
+
+.skill-card.active .skill-info {
+    max-height: 200px; /* adjust if needed */
+    padding: 10px;
+}

@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* Navbar */
+header {
+    padding: 20px 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00f5ff;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.content h1 {
+    font-size: 48px;
+}
+
+.content h3 {
+    margin: 10px 0;
+}
+
+.content span {
+    color: #00f5ff;
+}
+
+.content p {
+    margin: 15px 0;
+    max-width: 400px;
+}
+
+/* Social Icons */
+.socials a {
+    margin-right: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.socials a:hover {
+    color: #00f5ff;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #00f5ff;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Image */
+.image img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #00f5ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        margin-top: 0px;
+    }
+}

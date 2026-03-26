@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pivot Dashboard | Portfolio</title>
+
+<link rel="stylesheet" href="https://unpkg.com/phosphor-icons@2.0.3/src/css/phosphor.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --glass: rgba(255,255,255,0.06);
+  --primary: #6366f1;
+  --accent: #00ddff;
+  --text: #ffffff;
+  --muted: #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a);
+  color: var(--text);
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top:0; width:100%;
+  background: rgba(15,23,42,0.7);
+  backdrop-filter: blur(12px);
+  padding: 15px 60px;
+  z-index:1000;
+}
+
+nav {
+  display:flex; justify-content:space-between; align-items:center;
+}
+
+.logo { font-size:22px; font-weight:700; }
+
+.nav-links { display:flex; gap:25px; list-style:none; }
+.nav-links a {
+  text-decoration:none;
+  color:var(--muted);
+  transition:.3s;
+}
+.nav-links a:hover { color:var(--accent); }
+
+/* CONTAINER */
+.container {
+  max-width:1200px;
+  margin:120px auto;
+  padding:20px;
+}
+
+/* HEADER */
+.page-header {
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.page-header h1 {
+  font-size:2.8rem;
+  background: linear-gradient(90deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle {
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* CARDS */
+.process-card {
+  background: var(--glass);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:25px;
+  transition:.3s;
+  opacity:0;
+  transform:translateY(30px);
+}
+
+.process-card.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.step-title {
+  font-size:1.4rem;
+  margin-bottom:15px;
+  display:flex; gap:10px; align-items:center;
+  color:var(--accent);
+}
+
+.step-list li {
+  margin:8px 0;
+  color:var(--muted);
+}
+
+/* IMAGE GRID */
+.image-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.image-card {
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.image-card img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.image-card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:.3s;
+}
+
+.image-card:hover .overlay { opacity:1; }
+
+/* MODAL */
+.modal {
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+.modal.active { display:flex; }
+
+.modal img {
+  max-width:90%;
+  max-height:90vh;
+  border-radius:12px;
+}
+
+.close {
+  position:absolute;
+  top:20px; right:30px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<nav>
+<div class="logo">My Portfolio</div>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="project.html">Projects</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="page-header">
+<h1>Modeling Power Query</h1>
+<p class="subtitle">Interactive Modeling Power Query using Excel</p>
+</div>
+
+<div class="process-card">
+<h2 class="step-title"><i class="ph ph-table"></i>Worksheet</h2>
+<ul class="step-list">
+<li>Data cleaning and transformation</li>
+<li>Department_dim</li>
+<li>Name_Dim</li>
+<li>Payment_dim</li>
+</ul>
+</div>
+
+<div class="process-card">
+<h2 class="step-title"><i class="ph ph-chart-line"></i>Insights</h2>
+<ul class="step-list">
+<li>Bank transfer</li>
+<li>Region</li>
+<li>Sector comparison</li>
+</ul>
+</div>
+
+<div class="process-card">
+<h2 class="step-title"><i class="ph ph-sliders"></i>Query</h2>
+<ul class="step-list">
+<li>Get Data </li>
+<li>Queries</li>
+<li>Data Model</li>
+</ul>
+</div>
+
+<div class="image-grid">
+<div class="image-card">
+<img src="pic/5.png" alt="clean data pivot" loading="lazy">
+<div class="overlay"><span>Clean data pivot View</span></div>
+</div>
+
+<div class="image-card">
+<img src="pic/5.1.png" alt="power query" loading="lazy">
+<div class="overlay"><span>Power query View</span></div>
+</div>
+
+<div class="image-card">
+<img src="pic/5.2.png" alt="dirty data" loading="lazy">
+<div class="overlay"><span>Dirty data View</span></div>
+</div>
+
+
+<div class="image-card">
+<img src="pic/5.5.png" alt="data Modeling" loading="lazy">
+<div class="overlay"><span>Data Modeling View</span></div>
+</div>
+
+
+
+
+<div class="modal" id="modal">
+<span class="close" id="closeBtn">&times;</span>
+<img id="modalImg" alt="Expanded view">
+</div>
+
+<script>
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+
+document.querySelectorAll('.image-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modal.classList.add('active');
+    modalImg.src = card.querySelector('img').src;
+  });
+});
+
+document.getElementById('closeBtn').onclick = () => {
+  modal.classList.remove('active');
+};
+
+modal.addEventListener('click', (e) => {
+  if(e.target === modal){
+    modal.classList.remove('active');
+  }
+});
+
+// scroll animation (better trigger)
+const cards = document.querySelectorAll('.process-card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
